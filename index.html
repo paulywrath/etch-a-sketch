@@ -3,8 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Etch-a-Sketch</title>
+  <style>
+    .grid {
+        display: flex;
+        height: 960px;
+        width: 960px;
+    }
+    
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .column,
+    .row {
+        flex: 1;
+        border: 1px solid black; 
+    }
+  </style>
 </head>
 <body>
-  <div id="container"></div>
+  <div class="grid"></div>
+  <script>   
+    let squares = 16;
+
+    for (let i = 0; i < squares; ++i) {
+        const column = document.createElement('div'); // create column
+        column.className = 'column';
+        for (let j = 0; j < squares; ++j) {
+            const row = document.createElement('div'); // create row
+            row.className = 'row';
+            column.appendChild(row); // append row in column
+        }
+        document.querySelector('.grid').appendChild(column); // append column inside grid
+    }
+  </script>
 </body>
 </html>
