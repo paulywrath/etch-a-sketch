@@ -8,6 +8,7 @@
         display: flex;
         height: 960px;
         width: 960px;
+        border: 1px solid black;
     }
     
     .column {
@@ -18,13 +19,15 @@
     .column,
     .row {
         flex: 1;
-        border: 1px solid black; 
     }
   </style>
 </head>
 <body>
   <div class="grid"></div>
   <script>   
+    
+    grid = document.querySelector('.grid');
+
     let squares = 16;
 
     for (let i = 0; i < squares; ++i) {
@@ -34,9 +37,15 @@
             const row = document.createElement('div'); // create row
             row.className = 'row';
             column.appendChild(row); // append row in column
+
+            //Turn a square black when you hover over it
+            row.addEventListener("mouseover", () => {
+             row.style.backgroundColor = "black";
+            });
         }
-        document.querySelector('.grid').appendChild(column); // append column inside grid
+        grid.appendChild(column); // append column inside grid
     }
+
   </script>
 </body>
 </html>
