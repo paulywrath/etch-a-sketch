@@ -28,14 +28,10 @@
   <script>   
     
     document.querySelector('button').addEventListener("click", () => {
-        window.prompt("How many squares in each side of the grid?", "Max: 100");
-        });
-    
-    grid = document.querySelector('.grid');
-
-    let squares = 16;
-
-    for (let i = 0; i < squares; ++i) {
+        let squares = window.prompt("How many squares in each side of the grid?", 
+        "Positive whole numbers only. Enter as digits, i.e., 10 not ten. Max: 100");
+        
+        for (let i = 0; i < squares; ++i) {
         const column = document.createElement('div'); // create column
         column.className = 'column';
         for (let j = 0; j < squares; ++j) {
@@ -50,6 +46,10 @@
         }
         grid.appendChild(column); // append column inside grid
     }
+
+        });
+    
+    grid = document.querySelector('.grid');
 
   </script>
 </body>
