@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <button>Erase</button>
+  <button>New grid</button>
   <div class="grid"></div>
   <script>   
     
@@ -31,6 +31,11 @@
         let squares = window.prompt("How many squares in each side of the grid?", 
         "Positive whole numbers only. Enter as digits, i.e., 10 not ten. Max: 100");
         
+        if (typeof row !== 'undefined') {
+          row.remove();
+          column.remove();
+        }
+
         for (let i = 0; i < squares; ++i) {
         const column = document.createElement('div'); // create column
         column.className = 'column';
