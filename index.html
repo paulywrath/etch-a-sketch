@@ -30,6 +30,14 @@
     document.querySelector('button').addEventListener("click", () => {
         let squares = window.prompt("How many squares in each side of the grid?", 
         "Positive whole numbers only. Enter as digits, i.e., 10 not ten. Max: 100");
+        
+        if(squares < 1 || squares % 1 !== 0 || squares > 100) {
+          alert("Can't create the grid because a following condition isn't met:\
+                \n-Positive whole numbers only\
+                \n-Enter as digits, i.e., 10 not ten\
+                \n-Max: 100")
+          return;
+        } 
 
         //Remove existing grid, if there is one
         while (grid.firstChild) {
