@@ -52,9 +52,12 @@
                 row.className = 'row';
                 column.appendChild(row); // append row in column
 
-                //Turn a square black when you hover over it
+                //Turn a square a random color when you hover over it
                 row.addEventListener("mouseover", () => {
-                row.style.backgroundColor = "black";
+                r = Math.floor(Math.random() * 255);
+                g = Math.floor(Math.random() * 255);
+                b = Math.floor(Math.random() * 255);
+                row.style.backgroundColor = 'rgba(' + [r,g,b,1].join(',') + ')';
                 });
                 }
 
@@ -64,6 +67,8 @@
     });
     
     grid = document.querySelector('.grid');
+
+    let r, g, b; // create red, green, blue variables for random color selector
 
   </script>
 </body>
