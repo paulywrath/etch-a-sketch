@@ -52,12 +52,21 @@
                 row.className = 'row';
                 column.appendChild(row); // append row in column
 
-                //Turn a square a random color when you hover over it
+                //Change color and opacity of square when you hover over it
                 row.addEventListener("mouseover", () => {
-                r = Math.floor(Math.random() * 255);
-                g = Math.floor(Math.random() * 255);
-                b = Math.floor(Math.random() * 255);
-                row.style.backgroundColor = 'rgba(' + [r,g,b,1].join(',') + ')';
+                
+                  a += 0.1; // increase opacity variable
+                  
+                  /*
+                  // Randomize color values
+                  r = Math.floor(Math.random() * 255);
+                  g = Math.floor(Math.random() * 255);
+                  b = Math.floor(Math.random() * 255);
+                  */
+                
+                  // Assign color and opacity to square
+                  row.style.backgroundColor = 'rgba(' + [255,0,0,a].join(',') + ')';
+                
                 });
                 }
 
@@ -68,7 +77,9 @@
     
     grid = document.querySelector('.grid');
 
-    let r, g, b; // create red, green, blue variables for random color selector
+    let r, g, b; // create red, green, and blue variables for random color selector
+
+    let a = 0; // create opacity variable for square color 
 
   </script>
 </body>
