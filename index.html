@@ -48,28 +48,31 @@
             const column = document.createElement('div'); // create column
             column.className = 'column';
             for (let j = 0; j < squares; ++j) {
-                const row = document.createElement('div'); // create row
-                row.className = 'row';
-                column.appendChild(row); // append row in column
+              const row = document.createElement('div'); // create row
+              row.className = 'row';
 
-                //Change color and opacity of square when you hover over it
-                row.addEventListener("mouseover", () => {
-                
-                  a += 0.1; // increase opacity variable
+              // Set initial opacity value for each square
+              row.setAttribute('data-opacity', 0);
+
+              column.appendChild(row); // append row in column
+
+              // Change color and opacity of square when you hover over it
+              row.addEventListener("mouseover", () => {
                   
-                  /*
                   // Randomize color values
                   r = Math.floor(Math.random() * 255);
                   g = Math.floor(Math.random() * 255);
                   b = Math.floor(Math.random() * 255);
-                  */
                 
-                  // Assign color and opacity to square
-                  row.style.backgroundColor = 'rgba(' + [255,0,0,a].join(',') + ')';
-                
-                });
-                }
+                  const opacity = parseFloat(row.getAttribute('data-opacity')) + 0.1;
 
+                  if (opacity <= 1) {
+                      row.style.backgroundColor = 'rgba(' + [r, g, b, opacity].join(',') + ')';
+                      row.setAttribute('data-opacity', opacity);
+                  }
+              });
+                }
+                
             grid.appendChild(column); // append column inside grid
         }
 
@@ -78,8 +81,6 @@
     grid = document.querySelector('.grid');
 
     let r, g, b; // create red, green, and blue variables for random color selector
-
-    let a = 0; // create opacity variable for square color 
 
   </script>
 </body>
